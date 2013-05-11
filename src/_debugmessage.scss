@@ -1,0 +1,25 @@
+// Mixin:           debugmessage
+// Description:     eg. if you want to see a info if a media-query fired.
+// Example usage:   @include debugmessage("Your message");
+
+$debug = true;
+
+@mixin debugmessage($message, $color: rgba(231,255,27, 0.9)){
+    @if($debug == true) {
+        body {
+            &::before {
+                content: "#{$message}";
+                font-weight: bold;
+                display: block;
+                padding: 5px;
+                text-align: center;
+                background: $color;
+                position: absolute;
+                right: 0;
+                left: 0;
+                top: 0;
+                z-index: 99;
+            }
+        }
+    }
+}
