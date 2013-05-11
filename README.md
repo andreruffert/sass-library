@@ -1,4 +1,4 @@
-# A mixin library for Sass
+# A couple of addons & mixins for Sass
 The mixins uses SCSS syntax.
 
 
