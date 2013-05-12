@@ -1,0 +1,17 @@
+{
+    "name": "sass-library",
+    "description": "A couple of addons & mixins for SASS",
+    "version": "0.0.1",
+    "author": {
+        "name": "André Ruffert",
+        "url": "http://andreruffert.de/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/andreruffert/sass-library.git"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.x",
+        "grunt-contrib-concat": "~0.3.x"
+    }
+}

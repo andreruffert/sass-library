@@ -1,5 +1,6 @@
 // Mixin:           image-set
 // Description:     To support retina images
+//
 // Example usage:   @include image-set("image", "jpg");
 
 @mixin image-set($filename, $extension) {

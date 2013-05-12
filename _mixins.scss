@@ -1,0 +1,121 @@
+// Mixin:           clearfix
+// Description:     Micro clearfix provides an easy way to contain floats without adding additional markup
+//                  Acknowledgements: [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
+//
+// Example usage:   @include clearfix
+
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Mixin:           debugmessage
+// Description:     eg. if you want to see a info if a media-query fired.
+//
+// Example usage:   @include debugmessage("Your message");
+
+$debug = true;
+
+@mixin debugmessage($message, $color: rgba(231,255,27, 0.9)){
+    @if($debug == true) {
+        body {
+            &::before {
+                content: "#{$message}";
+                font-weight: bold;
+                display: block;
+                padding: 5px;
+                text-align: center;
+                background: $color;
+                position: absolute;
+                right: 0;
+                left: 0;
+                top: 0;
+                z-index: 99;
+            }
+        }
+    }
+}
+
+
+// Mixin:           font-size
+// Description:     Font size mixin to include px and rem
+//
+// Example usage:   @include font-size(1.6);
+
+@mixin font-size($size){
+    font-size: ($size * 10) + px;
+    font-size: $size + rem;
+}
+
+
+// Mixin:           image-set
+// Description:     To support retina images
+//
+// Example usage:   @include image-set("image", "jpg");
+
+@mixin image-set($filename, $extension) {
+    background-image: image_url(#{$filename} + "." + #{$extension});
+    background-image: -webkit-image-set(
+        image_url(#{$filename} + "." + #{$extension}) 1x,
+        image_url(#{$filename} + "@2x" + "." + #{$extension}) 2x
+    );
+    background-image: image-set(
+        image_url(#{$filename} + "." + #{$extension}) 1x,
+        image_url(#{$filename} + "@2x" + "." + #{$extension}) 2x
+    );
+}
+
+
+// Mixin:           prefixr
+// Description:     don't care about vendor prefixes
+//
+// Examle usage:    @include prefixr(animation, animation-name, webkit ms spec);
+
+$prefix-for-webkit:     true !default;
+$prefix-for-mozilla:    true !default;
+$prefix-for-microsoft:  true !default;
+$prefix-for-opera:      true !default;
+$prefix-for-spec:       true !default; // required for keyframe mixin
+
+@mixin prefixr ($property, $value, $prefixes) {
+    @each $prefix in $prefixes {
+        @if $prefix == webkit {
+            @if $prefix-for-webkit {
+                -webkit-#{$property}: $value;
+            }
+        }
+        @else if $prefix == moz {
+            @if $prefix-for-mozilla {
+                -moz-#{$property}: $value;
+            }
+        }
+        @else if $prefix == ms {
+            @if $prefix-for-microsoft {
+                -ms-#{$property}: $value;
+            }
+        }
+        @else if $prefix == o {
+            @if $prefix-for-opera {
+                -o-#{$property}: $value;
+            }
+        }
+        @else if $prefix == spec {
+            @if $prefix-for-spec {
+                #{$property}: $value;
+            }
+        }
+        @else {
+            @warn "Unrecognized prefix: #{$prefix}";
+        }
+    }
+}

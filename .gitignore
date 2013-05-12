@@ -7,4 +7,38 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-config.rb
+# Always-ignore extensions
+*~
+*.diff
+*.err
+*.log
+*.orig
+*.pyc
+*.rej
+*.sass-cache
+*.sw?
+*.vi
+
+# SublimeText project files
+*.sublime-*
+
+# nodejs
+lib-cov
+*.seed
+*.log
+#*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules
+
+# Misc
+.gitshots
+
+# Project specific files
+dist

@@ -1,4 +1,4 @@
-# A couple of addons & mixins for Sass
+# A couple of addons & mixins for SASS
 The mixins uses SCSS syntax.
 
 

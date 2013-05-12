@@ -1,0 +1,9 @@
+// Mixin:           font-size
+// Description:     Font size mixin to include px and rem
+//
+// Example usage:   @include font-size(1.6);
+
+@mixin font-size($size){
+    font-size: ($size * 10) + px;
+    font-size: $size + rem;
+}

@@ -1,5 +1,7 @@
 // Mixin:           clearfix
 // Description:     Micro clearfix provides an easy way to contain floats without adding additional markup
+//                  Acknowledgements: [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
+//
 // Example usage:   @include clearfix
 
 @mixin clearfix {
@@ -15,6 +17,3 @@
     clear: both;
   }
 }
-
-// Acknowledgements
-// Micro clearfix: [Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/)
