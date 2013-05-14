@@ -53,7 +53,7 @@ $debug = true;
 // Example usage:   @include font-size(1.6);
 
 @mixin font-size($size){
-    font-size: ($size * 10) + px;
+    font-size: ($size * 10) + px; // fallback for old browsers
     font-size: $size + rem;
 }
 
