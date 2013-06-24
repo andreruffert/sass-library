@@ -3,7 +3,7 @@
 //
 // Example usage:   @include debugmessage("Your message");
 
-$debug = true;
+$debug: true;
 
 @mixin debugmessage($message, $color: rgba(231,255,27, 0.9)){
     @if($debug == true) {
