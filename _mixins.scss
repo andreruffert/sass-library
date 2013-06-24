@@ -24,7 +24,7 @@
 //
 // Example usage:   @include debugmessage("Your message");
 
-$debug = true;
+$debug: true;
 
 @mixin debugmessage($message, $color: rgba(231,255,27, 0.9)){
     @if($debug == true) {
@@ -116,6 +116,25 @@ $prefix-for-spec:       true !default; // required for keyframe mixin
         }
         @else {
             @warn "Unrecognized prefix: #{$prefix}";
+        }
+    }
+}
+
+
+// Mixin:           respond-to
+// Description:     mixin for defining various breakpoints.
+//
+// Examle usage:    @include respond-to(small-mode) { foo:bar; }
+
+@mixin respond-to($media) {
+    @if $media == small-mode {
+        @media only screen and (max-width: 420px) { @content }
+    }
+    @else if $media == medium-mode {
+        @media only screen and (max-width: 768px) { @content }
+    }
+    @else if $media == large-mode {
+        @media only screen and (max-width: 980px) { @content }
         }
     }
 }
